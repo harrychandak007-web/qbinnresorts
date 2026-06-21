@@ -1,0 +1,2548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qbinn Tusker | Where the Wild Finds You</title>
+  <meta name="description" content="A 3-bedroom luxury villa at the edge of Jawalagiri forest. Occasional elephant sightings, private pool, jacuzzi, and Sangeet & Anjali — a caretaker couple who make every stay unforgettable. Sleeps 8–10 guests. Recognised in A+D Magazine's Top 25 Reflections." />
+
+  <!-- Open Graph / WhatsApp / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Qbinn Tusker — Where the Wild Finds You" />
+  <meta property="og:description" content="A 3-bedroom luxury villa at the edge of Jawalagiri forest. Some late evenings, the elephants visit. Every morning, you won't want to leave." />
+  <meta property="og:image" content="https://qbinntusker.com/images/n_out4.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://qbinntusker.com" />
+  <meta property="og:site_name" content="Qbinn Tusker" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Qbinn Tusker — Where the Wild Finds You" />
+  <meta name="twitter:description" content="A 3-bedroom luxury villa at the edge of Jawalagiri forest. Private pool, jacuzzi, and elephant sightings. 60km from Bangalore." />
+  <meta name="twitter:image" content="https://qbinntusker.com/images/n_out4.jpg" />
+
+  <link rel="preload" as="image" href="images/Qbinn (1).jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #080808;
+      --dark:    #111111;
+      --surface: #181818;
+      --gold:    #c4973a;
+      --gold-lt: #e0b85a;
+      --cream:   #f0ead8;
+      --muted:   #888880;
+      --green:   #3a6b34;
+      --white:   #ffffff;
+      --wa-green: #25D366;
+      --font-serif: 'EB Garamond', Georgia, serif;
+      --font-sans:  'Jost', system-ui, sans-serif;
+      --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      background: linear-gradient(to bottom, rgba(8,8,8,0.85) 0%, transparent 100%);
+      backdrop-filter: blur(0px);
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(8,8,8,0.95);
+      backdrop-filter: blur(12px);
+      padding: 1rem 3rem;
+      border-bottom: 1px solid rgba(196,151,58,0.15);
+    }
+    .nav-logo {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(240,234,216,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 0.6rem 1.4rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .nav-cta:hover { background: var(--gold-lt); }
+    }
+    .nav-cta:active { transform: scale(0.97); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 0.5rem; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--cream); transition: transform 0.3s var(--ease-out), opacity 0.2s ease; }
+    .nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile menu drawer */
+    .nav-mobile-drawer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      pointer-events: none;
+    }
+    .nav-mobile-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(8,8,8,0.7);
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-out);
+      pointer-events: none;
+    }
+    .nav-mobile-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: min(320px, 85vw);
+      height: 100%;
+      background: var(--dark);
+      border-left: 1px solid rgba(196,151,58,0.15);
+      padding: 5rem 2.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transform: translateX(100%);
+      transition: transform 0.35s var(--ease-drawer);
+      pointer-events: auto;
+    }
+    .nav-mobile-drawer.open {
+      display: block;
+      pointer-events: auto;
+    }
+    .nav-mobile-drawer.open .nav-mobile-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-mobile-drawer.open .nav-mobile-panel {
+      transform: translateX(0);
+    }
+    .nav-mobile-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid rgba(196,151,58,0.12);
+    }
+    .nav-mobile-links li a {
+      display: block;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(196,151,58,0.08);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: rgba(240,234,216,0.8);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-mobile-links li a:hover { color: var(--gold); }
+    .nav-mobile-cta {
+      margin-top: 2rem;
+      display: block;
+      text-align: center;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-mobile-cta:hover { background: var(--gold-lt); }
+
+    /* ─── SKIP TO CONTENT ─── */
+    .skip-link {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.7rem 1.2rem;
+      text-decoration: none;
+      z-index: 999;
+      transform: translateY(calc(-100% - 1rem));
+      transition: transform 0.2s var(--ease-out);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    /* ─── FOCUS INDICATORS ─── */
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+    /* Suppress focus ring on mouse click, keep for keyboard */
+    .btn-primary:focus:not(:focus-visible),
+    .btn-ghost:focus:not(:focus-visible),
+    .nav-cta:focus:not(:focus-visible) { outline: none; }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .hero-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      will-change: transform;
+      animation: kenBurns 20s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      0%   { transform: scale(1.0) translate(0, 0); }
+      100% { transform: scale(1.08) translate(-1.5%, -0.8%); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to top,
+          rgba(8,8,8,0.97) 0%,
+          rgba(8,8,8,0.82) 30%,
+          rgba(8,8,8,0.45) 60%,
+          rgba(8,8,8,0.15) 100%
+        ),
+        linear-gradient(
+          to right,
+          rgba(8,8,8,0.55) 0%,
+          transparent 65%
+        );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 3rem 5rem;
+      max-width: 820px;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      white-space: nowrap;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3.2rem, 7.5vw, 6.4rem);
+      font-weight: 500;
+      line-height: 1.0;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(240,234,216,0.75);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    }
+    .btn-primary:active { transform: scale(0.97); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid rgba(240,234,216,0.35);
+      color: var(--cream);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    }
+    .btn-ghost:active { transform: scale(0.97); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(240,234,216,0.45);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, rgba(196,151,58,0.6), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(1); opacity: 1; }
+      50% { transform: scaleY(0.5); opacity: 0.4; }
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section { position: relative; }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+    h1, h2 {
+      text-wrap: balance;
+    }
+    h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    h2 em { font-style: italic; color: var(--gold); }
+    p { color: rgba(240,234,216,0.72); }
+
+    /* ─── STATS BAR ─── */
+    #stats {
+      background: var(--surface);
+      border-top: 1px solid rgba(196,151,58,0.2);
+      border-bottom: 1px solid rgba(196,151,58,0.2);
+      padding: 2.5rem 3rem;
+    }
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .stat-item { padding: 1rem; border-right: 1px solid rgba(196,151,58,0.15); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      padding: 9rem 0;
+      background: var(--black);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-text h2 { margin-bottom: 1.8rem; }
+    .about-text p { margin-bottom: 1.2rem; font-size: 1.02rem; line-height: 1.85; }
+    .about-text p:last-of-type { margin-bottom: 2rem; }
+    .about-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 0.8rem;
+    }
+    .about-img-main {
+      grid-column: 1 / -1;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .about-img-main img, .about-img-sm img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .about-img-main:hover img, .about-img-sm:hover img { transform: scale(1.04); }
+    }
+    .about-img-sm { aspect-ratio: 4/3; overflow: hidden; }
+
+    /* ─── POOL / EXTERIOR ─── */
+    #pool {
+      padding: 0;
+      height: 85vh;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .pool-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .pool-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .pool-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(8,8,8,0.85) 0%, rgba(8,8,8,0.2) 60%, transparent 100%);
+    }
+    .pool-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 3rem;
+      max-width: 560px;
+    }
+    .pool-content h2 { margin-bottom: 1.2rem; }
+    .pool-content p { margin-bottom: 2rem; font-size: 1.02rem; line-height: 1.85; }
+
+    /* ─── ROOMS ─── */
+    #rooms {
+      padding: 9rem 0;
+      background: var(--dark);
+    }
+    .rooms-header { margin-bottom: 4rem; }
+    .rooms-header h2 { margin-bottom: 1rem; }
+    .rooms-header p { max-width: 540px; font-size: 1.02rem; }
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+    .room-card { position: relative; overflow: hidden; cursor: pointer; }
+    .room-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--ease-out);
+      will-change: transform;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .room-card:hover img { transform: scale(1.06); }
+    }
+    .room-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+    .room-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .room-name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .room-desc {
+      font-size: 0.82rem;
+      color: rgba(240,234,216,0.65);
+      line-height: 1.5;
+    }
+    .room-card--full { grid-column: 1 / -1; }
+    .room-card--full img { aspect-ratio: 21/9; }
+
+    /* ─── AMENITIES ─── */
+    #amenities {
+      padding: 9rem 0 0;
+      background: var(--black);
+    }
+    .amenities-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 3rem 3.5rem;
+    }
+    .amenities-header h2 { margin-bottom: 0; }
+
+    /* Featured amenity — full bleed */
+    .amenity-featured {
+      position: relative;
+      width: 100%;
+      height: 72vh;
+      min-height: 460px;
+      overflow: hidden;
+    }
+    .amenity-featured-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 55%;
+      display: block;
+      transition: transform 0.5s var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .amenity-featured:hover .amenity-featured-img { transform: scale(1.04); }
+    }
+    .amenity-featured-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.25) 50%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 3.5rem 4rem;
+    }
+    .amenity-featured-content { max-width: 540px; }
+    .amenity-featured-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .amenity-featured-label::before {
+      content: '';
+      display: block;
+      width: 24px; height: 1px;
+      background: var(--gold);
+    }
+    .amenity-featured-name {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+    .amenity-featured-desc {
+      font-size: 1rem;
+      color: rgba(240,234,216,0.72);
+      line-height: 1.75;
+      max-width: 420px;
+    }
+
+    /* Secondary row — 2 images, asymmetric 3:2 */
+    .amenity-secondary {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 3px;
+      margin-top: 3px;
+    }
+    .amenity-secondary-item {
+      position: relative;
+      overflow: hidden;
+      height: 56vh;
+      min-height: 360px;
+    }
+    .amenity-secondary-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .amenity-secondary-item:hover img { transform: scale(1.05); }
+    }
+    .amenity-secondary-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8,8,8,0.88) 0%, rgba(8,8,8,0.08) 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem 2.5rem;
+    }
+    .amenity-secondary-name {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .amenity-secondary-desc {
+      font-size: 0.88rem;
+      color: rgba(240,234,216,0.62);
+      line-height: 1.6;
+    }
+
+    /* Tertiary strip — 4 icon+text columns */
+    .amenity-tertiary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--dark);
+      border-top: 1px solid rgba(196,151,58,0.12);
+      margin-top: 3px;
+    }
+    .amenity-tertiary-item {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(196,151,58,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .amenity-tertiary-item:last-child { border-right: none; }
+    .amenity-tertiary-icon {
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .amenity-tertiary-name {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+    .amenity-tertiary-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ─── SAHARSH QUOTE ─── */
+    .saharsh-quote {
+      position: relative;
+    }
+    .saharsh-quote::before {
+      content: '\201C';
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 7rem;
+      color: rgba(196,151,58,0.22);
+      line-height: 0.75;
+      margin-bottom: 0.5rem;
+      font-style: normal;
+    }
+    .saharsh-quote blockquote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+      color: rgba(240,234,216,0.88);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .saharsh-quote cite {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* ─── GALLERY ─── */
+    #gallery {
+      padding: 9rem 0 0;
+      background: var(--dark);
+    }
+    .gallery-header { margin-bottom: 2rem; }
+    .gallery-header h2 { margin-bottom: 0.5rem; }
+
+    /* Filter tabs */
+    .gallery-filters {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+      border-bottom: 1px solid rgba(196,151,58,0.15);
+      margin-top: 2rem;
+    }
+    .gallery-filter-btn {
+      background: none;
+      border: none;
+      color: rgba(240,234,216,0.62);
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.9rem 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .gallery-filter-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .gallery-filter-btn:hover { color: var(--cream); }
+    .gallery-filter-btn.active { color: var(--gold); }
+    .gallery-filter-btn.active::after { transform: scaleX(1); }
+
+    /* Featured full-width image */
+    .gallery-featured {
+      width: 100%;
+      aspect-ratio: 21/9;
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+      margin-top: 4px;
+    }
+    .gallery-featured img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+      display: block;
+      transition: transform 0.5s var(--ease-out);
+      will-change: transform;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .gallery-featured:hover img { transform: scale(1.04); }
+    }
+    .gallery-featured-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 3rem 2.5rem 1.8rem;
+      background: linear-gradient(to top, rgba(8,8,8,0.75) 0%, transparent 100%);
+      pointer-events: none;
+    }
+    .gallery-featured-caption-name {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+    .gallery-featured-caption-cat {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Masonry grid */
+    .gallery-masonry {
+      columns: 3;
+      column-gap: 4px;
+      margin-top: 4px;
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 4px;
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .gallery-item:hover img { transform: scale(1.05); }
+    }
+
+    /* Caption overlay per item */
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 1.2rem 1rem;
+      background: linear-gradient(to top, rgba(8,8,8,0.85) 0%, transparent 100%);
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .gallery-item:hover .gallery-caption { transform: translateY(0); }
+    }
+    .gallery-caption-name {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 0.15rem;
+    }
+    .gallery-caption-cat {
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ─── AVAILABILITY CALENDAR ─── */
+    #availability {
+      padding: 9rem 0;
+      background: var(--black);
+      border-top: 1px solid rgba(196,151,58,0.12);
+    }
+    .cal-header { margin-bottom: 3.5rem; }
+    .cal-header h2 { margin-bottom: 0.6rem; }
+    .cal-header p { font-size: 1rem; color: var(--muted); }
+    .cal-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .cal-nav-btn {
+      background: none;
+      border: 1px solid rgba(196,151,58,0.3);
+      color: var(--gold);
+      font-size: 1rem;
+      width: 2.75rem;
+      height: 2.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .cal-nav-btn:hover { background: rgba(196,151,58,0.1); border-color: var(--gold); }
+    .cal-nav-title {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.06em;
+      min-width: 180px;
+    }
+    .cal-months {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .cal-month { }
+    .cal-month-title {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .cal-days-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .cal-day-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.4rem 0;
+    }
+    .cal-grid-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+    }
+    .cal-cell {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: rgba(240,234,216,0.6);
+      background: rgba(255,255,255,0.02);
+      position: relative;
+      cursor: default;
+    }
+    .cal-cell.empty { background: transparent; }
+    .cal-cell.today {
+      color: var(--gold);
+      font-weight: 600;
+      border: 1px solid rgba(196,151,58,0.4);
+    }
+    .cal-cell.booked {
+      background: rgba(180,60,60,0.18);
+      color: rgba(240,234,216,0.25);
+      text-decoration: line-through;
+    }
+    .cal-cell.available {
+      background: rgba(58,107,52,0.15);
+      color: rgba(240,234,216,0.8);
+    }
+    .cal-cell.past {
+      color: rgba(240,234,216,0.2);
+      background: transparent;
+    }
+    .cal-legend {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .cal-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .cal-legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .cal-legend-dot.available { background: rgba(58,107,52,0.6); }
+    .cal-legend-dot.booked { background: rgba(180,60,60,0.45); }
+    .cal-status {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      min-height: 1.4rem;
+    }
+    .cal-status.loading { color: var(--gold); }
+    .cal-status.error { color: rgba(200,80,80,0.8); }
+    @media (max-width: 900px) {
+      .cal-months { grid-template-columns: 1fr; }
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials {
+      padding: 9rem 0;
+      background: var(--surface);
+      border-top: 1px solid rgba(196,151,58,0.12);
+    }
+    .testimonials-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .testimonials-inner .section-label { justify-content: center; }
+    .testimonials-inner .section-label::before { display: none; }
+    .testimonials-inner h2 { margin-bottom: 4rem; }
+    .google-rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      margin-bottom: 2.5rem;
+    }
+    .google-stars { color: var(--gold); font-size: 1.2rem; letter-spacing: 0.08em; }
+    .google-score {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1;
+    }
+    .google-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 0.3rem;
+    }
+    /* Featured pull quote */
+    .testimonial-featured {
+      max-width: 780px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+    .testimonial-featured blockquote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+      color: rgba(240,234,216,0.92);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-featured cite {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-style: normal;
+    }
+    .testimonial-featured cite .cite-meta {
+      color: var(--muted);
+      margin-left: 0.4rem;
+    }
+    /* Two secondary quotes */
+    .testimonial-secondary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      border-top: 1px solid rgba(196,151,58,0.15);
+      padding-top: 3rem;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .testimonial-secondary p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(240,234,216,0.75);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .testimonial-secondary-cite {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .testimonial-secondary-source {
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* ─── SAHARSH CTA ─── */
+    #saharsh {
+      padding: 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .saharsh-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 7rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .saharsh-text .section-label { margin-bottom: 1.2rem; }
+    .saharsh-text h2 { margin-bottom: 1.5rem; }
+    .saharsh-text p { margin-bottom: 1rem; font-size: 1.02rem; line-height: 1.85; }
+    .saharsh-text p:last-of-type { margin-bottom: 2rem; }
+    .saharsh-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+    .saharsh-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(196,151,58,0.1);
+      font-size: 0.9rem;
+      color: rgba(240,234,216,0.75);
+    }
+    .saharsh-features li::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+    .saharsh-image {
+      position: relative;
+    }
+    .saharsh-image img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+    .saharsh-image::before {
+      content: '';
+      position: absolute;
+      top: -1.5rem;
+      left: -1.5rem;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      border: 1px solid rgba(196,151,58,0.25);
+      z-index: -1;
+    }
+    .saharsh-bg-text {
+      position: absolute;
+      bottom: 3rem;
+      right: -2rem;
+      font-family: var(--font-serif);
+      font-size: 10rem;
+      font-weight: 700;
+      color: rgba(196,151,58,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+    }
+
+    /* ─── LOCATION ─── */
+    #location {
+      padding: 9rem 0;
+      background: var(--dark);
+    }
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .location-text h2 { margin-bottom: 1.5rem; }
+    .location-text p { margin-bottom: 1.5rem; font-size: 1.02rem; line-height: 1.85; }
+    .location-map {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .location-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(80%) invert(90%) hue-rotate(180deg) brightness(0.75);
+    }
+    .location-map::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(196,151,58,0.25);
+      pointer-events: none;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      padding: 9rem 0;
+      background: var(--black);
+      border-top: 1px solid rgba(196,151,58,0.12);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-text h2 { margin-bottom: 1.2rem; }
+    .contact-text p { margin-bottom: 2.5rem; font-size: 1.02rem; line-height: 1.85; }
+    .contact-channels { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-channel {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid rgba(196,151,58,0.18);
+      text-decoration: none;
+      color: var(--cream);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-channel:hover {
+      border-color: var(--gold);
+      background: rgba(196,151,58,0.05);
+    }
+    .channel-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .channel-info { flex: 1; }
+    .channel-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+    .channel-value { font-size: 0.95rem; color: rgba(240,234,216,0.8); }
+    .channel-arrow { color: var(--gold); font-size: 1rem; }
+
+    /* contact form */
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-field label {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(196,151,58,0.2);
+      color: var(--cream);
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(240,234,216,0.5);
+    }
+    /* Show validation only after user has interacted (not on load) */
+    .form-field input:not(:placeholder-shown):invalid,
+    .form-field select.touched:invalid,
+    .form-field textarea:not(:placeholder-shown):invalid {
+      border-color: rgba(200, 80, 80, 0.7);
+    }
+    .form-field input:not(:placeholder-shown):valid,
+    .form-field select.touched:valid,
+    .form-field textarea:not(:placeholder-shown):valid {
+      border-color: rgba(58, 107, 52, 0.6);
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus { border-color: var(--gold); }
+    .form-field select option { background: var(--dark); }
+    .form-submit {
+      margin-top: 0.5rem;
+      width: 100%;
+      background: var(--gold);
+      color: var(--black);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 160ms var(--ease-out);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .form-submit:hover { background: var(--gold-lt); transform: translateY(-1px); }
+    }
+    .form-submit:active { transform: scale(0.97); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid rgba(196,151,58,0.15);
+      padding: 3.5rem 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(196,151,58,0.1);
+      margin-bottom: 2rem;
+    }
+    .footer-brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 300px;
+      margin-bottom: 1.5rem;
+    }
+    .footer-saharsh {
+      font-size: 0.72rem;
+      color: rgba(240,234,216,0.6);
+      letter-spacing: 0.08em;
+    }
+    .footer-saharsh a { color: var(--gold); text-decoration: none; }
+    .footer-saharsh a:hover { text-decoration: underline; }
+    .footer-col h4 {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      color: rgba(136,136,128,0.85);
+    }
+
+    /* ─── GALLERY LIGHTBOX ─── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 400;
+      background: rgba(8,8,8,0.97);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease-out), visibility 0.3s ease;
+    }
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .lightbox-img {
+      max-width: min(90vw, 1200px);
+      max-height: 85vh;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+      transform: scale(0.94);
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .lightbox.open .lightbox-img { transform: scale(1); }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: none; border: none;
+      color: var(--cream);
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0.5rem;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: none;
+      border: 1px solid rgba(196,151,58,0.3);
+      color: var(--gold);
+      width: 3rem; height: 3rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .lightbox-nav:hover { background: rgba(196,151,58,0.12); border-color: var(--gold); }
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+    .lightbox-count {
+      position: absolute;
+      bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(240,234,216,0.4);
+    }
+    @media (max-width: 600px) {
+      .lightbox-nav { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lightbox { backdrop-filter: none; }
+    }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--wa-green);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.9rem 1.4rem 0.9rem 1rem;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      transition: transform 160ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .wa-float:hover { transform: translateY(-2px); }
+    }
+    .wa-float:active { transform: scale(0.97); }
+
+    .wa-float svg { flex-shrink: 0; }
+
+    /* ─── DIVIDERS & UTILS ─── */
+    .gold-line {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem 0;
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .hero-content { padding: 0 1.5rem 4rem; }
+      .hero-scroll { right: 1.5rem; }
+      .section-inner { padding: 0 1.5rem; }
+      #stats { padding: 2rem 1.5rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(196,151,58,0.15); }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(196,151,58,0.15); }
+      .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-images { grid-template-columns: 1fr; }
+      .about-img-main { grid-column: auto; }
+
+      #pool { height: 70vw; min-height: 380px; }
+      .pool-overlay {
+        background: linear-gradient(to top, rgba(8,8,8,0.9) 0%, rgba(8,8,8,0.5) 100%);
+      }
+      .pool-content { max-width: 100%; padding: 0 1.5rem; }
+
+      .rooms-grid { grid-template-columns: 1fr; }
+      .amenity-secondary { grid-template-columns: 1fr; }
+      .amenity-secondary-item { height: 60vw; min-height: 260px; }
+      .amenity-tertiary { grid-template-columns: 1fr 1fr; }
+      .amenity-tertiary-item:nth-child(2) { border-right: none; }
+      .amenity-tertiary-item:nth-child(3) { border-top: 1px solid rgba(196,151,58,0.08); }
+      .amenity-tertiary-item:nth-child(4) { border-top: 1px solid rgba(196,151,58,0.08); border-right: none; }
+      .amenity-featured-overlay { padding: 2rem 1.5rem; }
+      .amenities-header { padding: 0 1.5rem 2.5rem; }
+
+      .gallery-masonry { columns: 2; }
+      .gallery-featured { aspect-ratio: 16/9; }
+      .gallery-filters { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .gallery-filter-btn { padding: 0.9rem 1.1rem; white-space: nowrap; }
+
+      .testimonial-secondary { grid-template-columns: 1fr; gap: 2rem; }
+      .saharsh-inner { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+      .location-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+      #about, #rooms, #amenities, #gallery, #testimonials, #location, #contact { padding: 6rem 0; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-eyebrow { white-space: normal; font-size: 0.65rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2.4rem; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-ghost { justify-content: center; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-masonry { columns: 1; }
+      .gallery-featured { aspect-ratio: 4/3; }
+      .wa-float span { display: none; }
+      .wa-float { padding: 0.9rem; }
+    }
+
+    /* ─── ENTRANCE ANIMATIONS ─── */
+    /* Progressive enhancement: animations activate only when JS runs */
+
+    .js-animate .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .js-animate .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .js-animate .fade-left {
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .js-animate .fade-left.visible { opacity: 1; transform: translateX(0); }
+
+    .js-animate .fade-right {
+      opacity: 0;
+      transform: translateX(28px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .js-animate .fade-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* Reduced motion: gentle opacity fade, no translate */
+    @media (prefers-reduced-motion: reduce) {
+      .js-animate .fade-up,
+      .js-animate .fade-left,
+      .js-animate .fade-right {
+        transform: none !important;
+        transition: opacity 0.3s ease !important;
+      }
+      .hero-bg img { animation: none !important; transform: scale(1) !important; }
+      .hero-scroll::after { animation: none !important; }
+      .scrollLine { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#about" class="skip-link">Skip to content</a>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">Qbinn <span>Tusker</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">Story</a></li>
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#availability">Availability</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+    <a href="https://wa.me/917676617129?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20stay%20at%20Qbinn%20Tusker." class="nav-cta" target="_blank" rel="noopener">Book Now</a>
+    <div class="nav-hamburger" id="hamburger" role="button" aria-label="Open navigation menu" aria-expanded="false" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="nav-mobile-backdrop" id="mobileBackdrop"></div>
+    <div class="nav-mobile-panel">
+      <ul class="nav-mobile-links">
+        <li><a href="#about">Story</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#availability">Availability</a></li>
+        <li><a href="#location">Location</a></li>
+      </ul>
+      <a href="https://wa.me/917676617129?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20stay%20at%20Qbinn%20Tusker." class="nav-mobile-cta" target="_blank" rel="noopener">Book Now</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg" id="heroBg">
+      <img src="images/Qbinn (1).jpg" srcset="images/optimised/Qbinn (1)-800w.webp 800w, images/optimised/Qbinn (1)-1400w.webp 1400w" sizes="100vw" alt="" role="presentation" fetchpriority="high" decoding="async" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Award-Winning 3BHK Container Villa &nbsp;·&nbsp; Thalli, Bangalore</div>
+      <h1 class="hero-title">Where the wild<br><em>finds you.</em></h1>
+      <p class="hero-sub">
+        A 3-bedroom luxury villa at the edge of Jawalagiri forest. Some late evenings, the elephants visit. Every morning, you won't want to leave.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/917676617129?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20stay%20at%20Qbinn%20Tusker." class="btn-primary" target="_blank" rel="noopener">
+          Book Your Stay
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#gallery" class="btn-ghost">View Gallery</a>
+      </div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" aria-label="Property highlights">
+    <div class="stats-grid">
+      <div class="stat-item fade-up">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Bedroom Villa</div>
+      </div>
+      <div class="stat-item fade-up" style="transition-delay:0.1s">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Shipping Containers</div>
+      </div>
+      <div class="stat-item fade-up" style="transition-delay:0.2s">
+        <div class="stat-num">8–10</div>
+        <div class="stat-label">Guests Comfortably</div>
+      </div>
+      <div class="stat-item fade-up" style="transition-delay:0.3s">
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text fade-left">
+          <div class="section-label">The Story</div>
+          <h2>Named for a reason.<br><em>And a sighting.</em></h2>
+          <div class="gold-line"></div>
+          <p>
+            Qbinn Tusker sits at the edge of Jawalagiri forest. And occasionally, in the early hours, a tusker appears at the boundary. Not staged. Not scheduled. Just the wild, doing what it does — reminding you where you are.
+          </p>
+          <p>
+            That's what we named this place for. Not the architecture, not the awards — though A+D Magazine did recognise us in their December edition among the <strong style="color:var(--gold)">Top 25 Reflections</strong>. We named it for the feeling of sitting on your terrace at dawn, tea in hand, and realising you're sharing the morning with something ancient and unhurried.
+          </p>
+          <p>
+            Sangeet and Anjali have been here from the beginning. Our resident caretaker couple — the ones who remember how you take your chai, who make sure dinner is ready when you want it, and who our guests ask about long after checkout. The hospitality here isn't a service. It's personal.
+          </p>
+        </div>
+        <div class="about-images fade-right" style="transition-delay:0.15s">
+          <div class="about-img-main" style="aspect-ratio:4/3">
+            <img src="images/Qbinn (3).jpg" srcset="images/optimised/Qbinn (3)-800w.webp 800w, images/optimised/Qbinn (3)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Aerial view of Qbinn Tusker estate" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POOL / EXTERIOR -->
+  <section id="pool">
+    <div class="pool-bg">
+      <img src="images/Qbinn (13).png" srcset="images/optimised/Qbinn (13)-800w.webp 800w, images/optimised/Qbinn (13)-1400w.webp 1400w" sizes="100vw" alt="" role="presentation" loading="lazy" decoding="async" />
+    </div>
+    <div class="pool-overlay"></div>
+    <div class="pool-content fade-up">
+      <h2>Forest behind you.<br><em>Pool in front.</em></h2>
+      <p>
+        The Jawalagiri forest is your backdrop. The private pool is your foreground. Between them — nothing but open sky, birdsong, and the kind of quiet that city life forgets exists.
+      </p>
+      <a href="#contact" class="btn-primary">
+        Reserve Your Dates
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section id="rooms">
+    <div class="section-inner">
+      <div class="rooms-header fade-up">
+        <h2>Your retreat<br><em>in the wild.</em></h2>
+        <p>Three bedrooms, sleeping 8–10 guests comfortably. Designed to feel like a sanctuary — warm, quiet, and completely disconnected from the noise of the city.</p>
+      </div>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card fade-up">
+        <img src="images/Qbinn (2).jpg" srcset="images/optimised/Qbinn (2)-800w.webp 800w, images/optimised/Qbinn (2)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Warm bedroom interior with teak accents and soft evening lighting" loading="lazy" decoding="async" />
+        <div class="room-card-overlay">
+          <div class="room-tag">Bedroom One</div>
+          <div class="room-name">Forest Suite</div>
+          <div class="room-desc">Teak-panelled walls, balcony facing the treeline, king bed with premium linen</div>
+        </div>
+      </div>
+      <div class="room-card fade-up" style="transition-delay:0.1s">
+        <img src="images/n_bed3a.jpg" srcset="images/optimised/n_bed3a-800w.webp 800w, images/optimised/n_bed3a-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Bright bedroom with large windows and natural daylight" loading="lazy" decoding="async" />
+        <div class="room-card-overlay">
+          <div class="room-tag">Bedroom Two</div>
+          <div class="room-name">Garden Suite</div>
+          <div class="room-desc">Floor-to-ceiling windows flooding the room in morning light, queen bed</div>
+        </div>
+      </div>
+      <div class="room-card room-card--full fade-up" style="transition-delay:0.2s">
+        <img src="images/Qbinn (8).jpg" srcset="images/optimised/Qbinn (8)-800w.webp 800w, images/optimised/Qbinn (8)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Spacious master bedroom with high ceilings and premium linens" loading="lazy" decoding="async" />
+        <div class="room-card-overlay">
+          <div class="room-tag">Bedroom Three</div>
+          <div class="room-name">Master Suite</div>
+          <div class="room-desc">High ceilings, the largest room in the villa, private seating alcove and en-suite bathroom</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section id="amenities">
+    <div class="amenities-header fade-up">
+      <h2>The recipe for<br><em>a perfect weekend.</em></h2>
+    </div>
+
+    <!-- Featured: Private Pool -->
+    <div class="amenity-featured fade-up" style="transition-delay:0.1s">
+      <img class="amenity-featured-img" src="images/Qbinn (13).png" srcset="images/optimised/Qbinn (13)-800w.webp 800w, images/optimised/Qbinn (13)-1400w.webp 1400w" sizes="100vw" alt="Private pool at Qbinn Tusker with full property view" loading="lazy" decoding="async" />
+      <div class="amenity-featured-overlay">
+        <div class="amenity-featured-content">
+          <div class="amenity-featured-label">Signature Amenity</div>
+          <div class="amenity-featured-name">Private Pool</div>
+          <p class="amenity-featured-desc">Full-length pool facing the ornate facade — added on guest request and now the most-photographed spot at the property. The forest begins where the water ends.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secondary: Jacuzzi + Outdoor Terrace -->
+    <div class="amenity-secondary fade-up" style="transition-delay:0.15s">
+      <div class="amenity-secondary-item">
+        <img src="images/Qbinn (5).jpg" srcset="images/optimised/Qbinn (5)-800w.webp 800w, images/optimised/Qbinn (5)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Open-sky jacuzzi framed by laser-cut pergola screens" loading="lazy" decoding="async" />
+        <div class="amenity-secondary-overlay">
+          <div class="amenity-secondary-name">Open-Sky Jacuzzi</div>
+          <div class="amenity-secondary-desc">Soaking tub framed by ornate laser-cut screens — open to the sky above</div>
+        </div>
+      </div>
+      <div class="amenity-secondary-item">
+        <img src="images/Qbinn (6).jpg" srcset="images/optimised/Qbinn (6)-800w.webp 800w, images/optimised/Qbinn (6)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="A-frame teak outdoor terrace dining pavilion at night" loading="lazy" decoding="async" />
+        <div class="amenity-secondary-overlay">
+          <div class="amenity-secondary-name">Outdoor Terrace</div>
+          <div class="amenity-secondary-desc">A-frame teak dining pavilion under the night sky</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tertiary: 4-column strip -->
+    <div class="amenity-tertiary fade-up" style="transition-delay:0.2s">
+      <div class="amenity-tertiary-item">
+        <div class="amenity-tertiary-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+        </div>
+        <div class="amenity-tertiary-name">Full Kitchen</div>
+        <div class="amenity-tertiary-desc">Galley kitchen with fridge, hob, microwave and all essentials for self-catering</div>
+      </div>
+      <div class="amenity-tertiary-item">
+        <div class="amenity-tertiary-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2h10v4H7zM5 6h14v2H5zM3 8h18v2H3zM4 10v10a2 2 0 002 2h12a2 2 0 002-2V10"/></svg>
+        </div>
+        <div class="amenity-tertiary-name">Bathrooms</div>
+        <div class="amenity-tertiary-desc">2 full bathrooms · 2 powder rooms · rain shower with open forest views</div>
+      </div>
+      <div class="amenity-tertiary-item">
+        <div class="amenity-tertiary-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="amenity-tertiary-name">Fireplace</div>
+        <div class="amenity-tertiary-desc">Indoor fireplace — the spot guests never leave on cool forest evenings</div>
+      </div>
+      <div class="amenity-tertiary-item">
+        <div class="amenity-tertiary-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12M12 12C12 7 7 3 2 3M12 12c0-5 5-9 10-9"/><path d="M2 3c5 0 10 4 10 9M22 3c-5 0-10 4-10 9"/></svg>
+        </div>
+        <div class="amenity-tertiary-name">Landscaped Gardens</div>
+        <div class="amenity-tertiary-desc">Stepping-stone paths through manicured grounds — perfect for a slow morning walk</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="section-inner">
+      <div class="gallery-header fade-up">
+        <h2>Every corner<br><em>is the shot.</em></h2>
+      </div>
+      <div class="gallery-filters fade-up" style="transition-delay:0.1s" role="tablist" aria-label="Gallery filter">
+        <button class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="gallery-filter-btn" data-filter="exterior" role="tab" aria-selected="false">Exterior</button>
+        <button class="gallery-filter-btn" data-filter="rooms" role="tab" aria-selected="false">Rooms</button>
+        <button class="gallery-filter-btn" data-filter="outdoor" role="tab" aria-selected="false">Outdoor</button>
+      </div>
+    </div>
+
+    <!-- Featured full-width hero image -->
+    <div class="gallery-featured" id="galleryFeatured" role="button" tabindex="0" aria-label="View The Estate — full property with pool">
+      <img src="images/Qbinn (13).png" srcset="images/optimised/Qbinn (13)-800w.webp 800w, images/optimised/Qbinn (13)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Qbinn Tusker estate — full property with private pool and forest backdrop" loading="lazy" decoding="async" />
+      <div class="gallery-featured-caption">
+        <div class="gallery-featured-caption-name">The Estate</div>
+        <div class="gallery-featured-caption-cat">Exterior · Pool</div>
+      </div>
+    </div>
+
+    <!-- Masonry grid -->
+    <div class="gallery-masonry" id="galleryMasonry">
+
+      <div class="gallery-item" data-category="exterior" role="button" tabindex="0" aria-label="View Night Exterior">
+        <img src="images/Qbinn (1).jpg" srcset="images/optimised/Qbinn (1)-800w.webp 800w, images/optimised/Qbinn (1)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Qbinn Tusker night exterior — dramatic garden lighting and teal laser-cut panels" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Night Exterior</div>
+          <div class="gallery-caption-cat">Exterior</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Living Room">
+        <img src="images/Qbinn (4).jpg" srcset="images/optimised/Qbinn (4)-800w.webp 800w, images/optimised/Qbinn (4)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Qbinn Tusker living room with elephant painting and teal sofas" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Living Room</div>
+          <div class="gallery-caption-cat">Rooms</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="outdoor" role="button" tabindex="0" aria-label="View Open Jacuzzi">
+        <img src="images/Qbinn (5).jpg" srcset="images/optimised/Qbinn (5)-800w.webp 800w, images/optimised/Qbinn (5)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Open-sky jacuzzi framed by ornate laser-cut pergola screens" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Open Jacuzzi</div>
+          <div class="gallery-caption-cat">Outdoor</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Master Bedroom">
+        <img src="images/Qbinn (2).jpg" srcset="images/optimised/Qbinn (2)-800w.webp 800w, images/optimised/Qbinn (2)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Master bedroom with balcony opening to forest views and teal curtains" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Master Bedroom</div>
+          <div class="gallery-caption-cat">Rooms</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="exterior" role="button" tabindex="0" aria-label="View Aerial View">
+        <img src="images/Qbinn (3).jpg" srcset="images/optimised/Qbinn (3)-800w.webp 800w, images/optimised/Qbinn (3)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Aerial drone view of Qbinn Tusker estate with pool and Jawalagiri forest" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Aerial View</div>
+          <div class="gallery-caption-cat">Exterior</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="outdoor" role="button" tabindex="0" aria-label="View Terrace at Night">
+        <img src="images/Qbinn (6).jpg" srcset="images/optimised/Qbinn (6)-800w.webp 800w, images/optimised/Qbinn (6)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="A-frame teak terrace dining pavilion at night with geometric steel beams" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Terrace at Night</div>
+          <div class="gallery-caption-cat">Outdoor</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Dining Area">
+        <img src="images/Qbinn (7).jpg" srcset="images/optimised/Qbinn (7)-800w.webp 800w, images/optimised/Qbinn (7)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Dining area with set table viewed through full-height glass sliding doors" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Dining Area</div>
+          <div class="gallery-caption-cat">Rooms</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Second Bedroom">
+        <img src="images/Qbinn (8).jpg" srcset="images/optimised/Qbinn (8)-800w.webp 800w, images/optimised/Qbinn (8)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Second bedroom with wooden bed frame, balcony and nature views" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Second Bedroom</div>
+          <div class="gallery-caption-cat">Rooms</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="exterior" role="button" tabindex="0" aria-label="View Garden Walkway">
+        <img src="images/Qbinn (9).jpg" srcset="images/optimised/Qbinn (9)-800w.webp 800w, images/optimised/Qbinn (9)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Daytime garden with stepping-stone path and laser-cut pergola archway" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Garden Walkway</div>
+          <div class="gallery-caption-cat">Exterior</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Kitchen">
+        <img src="images/Qbinn (10).jpg" srcset="images/optimised/Qbinn (10)-800w.webp 800w, images/optimised/Qbinn (10)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Galley kitchen with marble counters, full appliances and narrow garden window" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Kitchen</div>
+          <div class="gallery-caption-cat">Rooms</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Marble Bathroom">
+        <img src="images/Qbinn (12).jpg" srcset="images/optimised/Qbinn (12)-800w.webp 800w, images/optimised/Qbinn (12)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Marble bathroom with vessel sink, round LED mirror and gold fixtures" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Marble Bathroom</div>
+          <div class="gallery-caption-cat">Rooms</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Family Room">
+        <img src="images/n_famroom1.jpg" srcset="images/optimised/n_famroom1-800w.webp 800w, images/optimised/n_famroom1-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Family room with blue L-sofa, elephant artwork and open plan kitchen access" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Family Room</div>
+          <div class="gallery-caption-cat">Rooms</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="outdoor" role="button" tabindex="0" aria-label="View Teak Stairwell">
+        <img src="images/n_stairs1.jpg" srcset="images/optimised/n_stairs1-800w.webp 800w, images/optimised/n_stairs1-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Dramatic wood-panelled staircase with warm accent lighting" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Teak Stairwell</div>
+          <div class="gallery-caption-cat">Outdoor</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Third Bedroom">
+        <img src="images/n_bed3a.jpg" srcset="images/optimised/n_bed3a-800w.webp 800w, images/optimised/n_bed3a-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Third bedroom with warm timber ceiling and floor-to-ceiling windows" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">Third Bedroom</div>
+          <div class="gallery-caption-cat">Rooms</div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="exterior" role="button" tabindex="0" aria-label="View After Dusk">
+        <img src="images/n_out4.jpg" srcset="images/optimised/n_out4-800w.webp 800w, images/optimised/n_out4-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Qbinn Tusker after dusk — container architecture lit against deep blue hour sky" loading="lazy" decoding="async" />
+        <div class="gallery-caption">
+          <div class="gallery-caption-name">After Dusk</div>
+          <div class="gallery-caption-cat">Exterior</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AVAILABILITY -->
+  <section id="availability">
+    <div class="section-inner">
+      <div class="cal-header fade-up">
+        <h2>Check your <em>dates.</em></h2>
+        <p>Live availability calendar. Check your dates and reach out directly to book.</p>
+      </div>
+      <div class="cal-nav fade-up">
+        <button class="cal-nav-btn" id="calPrev" aria-label="Previous month">&#8592;</button>
+        <div class="cal-nav-title" id="calNavTitle" aria-live="polite"></div>
+        <button class="cal-nav-btn" id="calNext" aria-label="Next month">&#8594;</button>
+      </div>
+      <div class="cal-months fade-up" id="calMonths"></div>
+      <p class="cal-status" id="calStatus">Loading availability...</p>
+      <div class="cal-legend fade-up">
+        <div class="cal-legend-item"><div class="cal-legend-dot available"></div> Available</div>
+        <div class="cal-legend-item"><div class="cal-legend-dot booked"></div> Booked</div>
+      </div>
+      <a href="https://wa.me/917676617129?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20stay%20at%20Qbinn%20Tusker.%20Could%20you%20please%20confirm%20availability%20and%20pricing%3F" class="btn-primary fade-up" target="_blank" rel="noopener" id="calBookBtn">
+        Book via WhatsApp
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-inner testimonials-inner">
+      <div class="google-rating fade-up">
+        <span class="google-stars">★★★★★</span>
+        <span class="google-score">4.9</span>
+        <span class="google-label">on Google Reviews</span>
+      </div>
+      <h2 class="fade-up">What they <em>come back for.</em></h2>
+      <div class="testimonial-featured fade-up" style="transition-delay:0.1s">
+        <blockquote>"Such a warm welcome, beautifully built villa, serene and calm place away from the city hustle — and what amazing hospitality. Good food cooked by the in-home couple and the caretaker Sangeet and his wife. One must visit this place."</blockquote>
+        <cite>Ashwini Inchal <span class="cite-meta">· Google Reviews · 8 months ago</span></cite>
+      </div>
+      <div class="testimonial-secondary fade-up" style="transition-delay:0.2s">
+        <div>
+          <p>"Great spot for a weekend getaway from Bangalore. Sangeet and his wife cooked us some amazing meals. The fireplace is a really cozy spot and the lazy morning walk around the property was the perfect start to the day."</p>
+          <div class="testimonial-secondary-cite">Ajay Chakiat</div>
+          <div class="testimonial-secondary-source">Google Reviews · Local Guide · 5 months ago</div>
+        </div>
+        <div>
+          <p>"The location is peaceful and surrounded by greenery — perfect for relaxing away from the city. The ambience is calm and refreshing, especially in the early mornings. Memorable and refreshing. Will surely visit again."</p>
+          <div class="testimonial-secondary-cite">Rohit Poojary</div>
+          <div class="testimonial-secondary-source">Google Reviews · Local Guide · 4 months ago</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAHARSH CABINS CTA -->
+  <section id="saharsh">
+    <div class="saharsh-bg-text">SC</div>
+    <div class="saharsh-inner">
+      <div class="saharsh-text fade-left">
+        <div class="section-label">Saharsh Cabins</div>
+        <h2>Inspired by<br><em>your stay here?</em></h2>
+        <p>
+          Qbinn Tusker exists so you can answer one question before you sign anything: <em>what does a bespoke luxury villa actually feel like to live in?</em>
+        </p>
+        <p>
+          Saharsh Cabins designs and builds premium villas, resorts, and vacation properties across India. Every project is engineered for permanence, designed for delight.
+        </p>
+        <ul class="saharsh-features">
+          <li>End-to-end design and construction</li>
+          <li>Custom architecture for hospitality and residential</li>
+          <li>Site visits, consultations and feasibility studies</li>
+          <li>Airbnb-ready turnkey properties</li>
+        </ul>
+        <a href="https://wa.me/917676617129?text=Hi%2C%20I%20stayed%20at%20Qbinn%20Tusker%20and%20I%27d%20like%20to%20explore%20building%20my%20own%20property%20with%20Saharsh%20Cabins." class="btn-primary" target="_blank" rel="noopener">
+          Talk to Saharsh Cabins
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="saharsh-quote fade-right" style="transition-delay:0.15s">
+        <blockquote>"We built Qbinn Tusker to prove that the most extraordinary experiences don't happen despite where you are — they happen because of it."</blockquote>
+        <cite>Saharsh Cabins, Founder</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <div class="section-inner">
+      <div class="location-grid">
+        <div class="location-text fade-left">
+          <h2>At the edge<br>of <em>Jawalagiri.</em></h2>
+          <div class="gold-line"></div>
+          <p>
+            Qbinn Tusker is in Thalli, at the boundary of Jawalagiri forest — roughly 60km from Bangalore. Close enough to reach without losing a day. Far enough that the forest takes over the moment you arrive.
+          </p>
+          <a href="https://maps.app.goo.gl/zAjUFAz1qsDba78q6" class="btn-ghost" target="_blank" rel="noopener" style="display:inline-flex;gap:0.6rem;align-items:center;margin-top:0.5rem">
+            Open in Google Maps
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="location-map fade-right" style="transition-delay:0.15s">
+          <iframe
+            src="https://maps.google.com/maps?q=Qbinn+Tusker&output=embed&z=15"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Qbinn Tusker Location">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div class="contact-text fade-up">
+          <h2>The forest<br>is waiting.<br><em>Are you?</em></h2>
+          <p>
+            Weekends fill up fast. Reach out on WhatsApp for availability, or fill in the form and Sangeet and Anjali will take it from there.
+          </p>
+          <div class="contact-channels">
+            <a href="https://wa.me/917676617129?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20stay%20at%20Qbinn%20Tusker." class="contact-channel" target="_blank" rel="noopener">
+              <div class="channel-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <div class="channel-info">
+                <div class="channel-label">WhatsApp</div>
+                <div class="channel-value">+91 76766 17129</div>
+              </div>
+              <div class="channel-arrow">→</div>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form fade-up" style="transition-delay:0.15s" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Arjun" required />
+            </div>
+            <div class="form-field">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Sharma" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone / WhatsApp</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required />
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="checkin">Check-in</label>
+              <input type="date" id="checkin" name="checkin" required />
+            </div>
+            <div class="form-field">
+              <label for="checkout">Check-out</label>
+              <input type="date" id="checkout" name="checkout" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="guests">Number of Guests</label>
+            <select id="guests" name="guests" required>
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6">6 Guests</option>
+              <option value="7">7 Guests</option>
+              <option value="8">8 Guests</option>
+              <option value="9">9 Guests</option>
+              <option value="10">10 Guests</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Special Requests (optional)</label>
+            <textarea id="message" name="message" rows="3" placeholder="Anniversary setup, early check-in, dietary needs..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            Send Enquiry via WhatsApp
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Qbinn <span>Tusker</span></div>
+        <p class="footer-brand-desc">A luxury escape at the edge of Jawalagiri forest. 3 bedrooms, private pool, jacuzzi, and Sangeet & Anjali — whose hospitality guests never stop talking about. Recognised in A+D Magazine's Top 25 Reflections.</p>
+        <div class="footer-saharsh">A flagship property by <a href="https://wa.me/917676617129?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Saharsh%20Cabins." target="_blank" rel="noopener">Saharsh Cabins</a>, India's premium villa builders.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#rooms">Rooms</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Guest Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://wa.me/917676617129" target="_blank" rel="noopener">WhatsApp Us</a></li>
+          <li><a href="#contact">Send Enquiry</a></li>
+          <li><a href="#location">Find Us</a></li>
+          <li><a href="#saharsh">Build With Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Qbinn Tusker. All rights reserved.</span>
+      <span>A <a href="https://wa.me/917676617129" style="color:var(--gold);text-decoration:none" target="_blank" rel="noopener">Saharsh Cabins</a> property.</span>
+    </div>
+  </footer>
+
+  <!-- GALLERY LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery image viewer">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close gallery">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#8592;</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">&#8594;</button>
+    <div class="lightbox-count" id="lightboxCount"></div>
+  </div>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/917676617129?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20stay%20at%20Qbinn%20Tusker." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Book on WhatsApp</span>
+  </a>
+
+  <script>
+    // ── MOBILE NAV ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileBackdrop = document.getElementById('mobileBackdrop');
+
+    const focusableSelectors = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    function openMenu() {
+      mobileDrawer.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      const firstFocusable = mobileDrawer.querySelector(focusableSelectors);
+      if (firstFocusable) firstFocusable.focus();
+    }
+    function closeMenu() {
+      mobileDrawer.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      hamburger.focus();
+    }
+
+    // Focus trap — cycle Tab/Shift-Tab within open drawer
+    mobileDrawer.addEventListener('keydown', e => {
+      if (e.key !== 'Tab') return;
+      const focusable = [...mobileDrawer.querySelectorAll(focusableSelectors)];
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    hamburger.addEventListener('click', () => {
+      hamburger.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
+    });
+    hamburger.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hamburger.click(); }
+    });
+    mobileBackdrop.addEventListener('click', closeMenu);
+    mobileDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+    // ── AVAILABILITY CALENDAR ──
+    // Replace this URL with your Airbnb iCal export link:
+    // Airbnb → Manage Listing → Availability → Export Calendar
+    const ICAL_URL = 'https://www.airbnb.co.in/calendar/ical/1522245296750708243.ics?t=b5332c9a477e4a388b0aa4fbd428da1d';
+    const AIRBNB_LISTING_URL = 'https://www.airbnb.co.in/rooms/1522245296750708243';
+
+    const CORS_PROXY = 'https://corsproxy.io/?';
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const DAY_LABELS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+
+    let bookedRanges = [];
+    let calOffset = 0; // 0 = show current + next month
+
+    function parseIcalDate(str) {
+      const s = str.replace(/[TZ]/g, '');
+      const y = +s.slice(0,4), m = +s.slice(4,6)-1, d = +s.slice(6,8);
+      return new Date(y, m, d);
+    }
+
+    function parseIcal(text) {
+      const ranges = [];
+      const events = text.split('BEGIN:VEVENT');
+      events.shift();
+      for (const ev of events) {
+        const startMatch = ev.match(/DTSTART[^:]*:(\d{8})/);
+        const endMatch   = ev.match(/DTEND[^:]*:(\d{8})/);
+        if (startMatch && endMatch) {
+          ranges.push({ start: parseIcalDate(startMatch[1]), end: parseIcalDate(endMatch[1]) });
+        }
+      }
+      return ranges;
+    }
+
+    function isBooked(date) {
+      const t = date.getTime();
+      return bookedRanges.some(r => t >= r.start.getTime() && t < r.end.getTime());
+    }
+
+    function isPast(date) {
+      const today = new Date(); today.setHours(0,0,0,0);
+      return date < today;
+    }
+
+    function isToday(date) {
+      const today = new Date();
+      return date.getFullYear() === today.getFullYear() &&
+             date.getMonth() === today.getMonth() &&
+             date.getDate() === today.getDate();
+    }
+
+    function renderMonth(year, month) {
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      let html = `<div class="cal-month">
+        <div class="cal-month-title">${MONTHS[month]} ${year}</div>
+        <div class="cal-days-header">${DAY_LABELS.map(d => `<div class="cal-day-label">${d}</div>`).join('')}</div>
+        <div class="cal-grid-days">`;
+      for (let i = 0; i < firstDay; i++) html += `<div class="cal-cell empty"></div>`;
+      for (let d = 1; d <= daysInMonth; d++) {
+        const date = new Date(year, month, d);
+        let cls = 'cal-cell';
+        if (isPast(date))      cls += ' past';
+        else if (isBooked(date)) cls += ' booked';
+        else                   cls += ' available';
+        if (isToday(date))     cls += ' today';
+        html += `<div class="${cls}">${d}</div>`;
+      }
+      html += `</div></div>`;
+      return html;
+    }
+
+    function renderCalendar() {
+      const today = new Date();
+      const base = new Date(today.getFullYear(), today.getMonth() + calOffset, 1);
+      const m1y = base.getFullYear(), m1m = base.getMonth();
+      const m2 = new Date(m1y, m1m + 1, 1);
+      document.getElementById('calNavTitle').textContent = `${MONTHS[m1m]} – ${MONTHS[m2.getMonth()]} ${m2.getFullYear()}`;
+      document.getElementById('calMonths').innerHTML = renderMonth(m1y, m1m) + renderMonth(m2.getFullYear(), m2.getMonth());
+      document.getElementById('calPrev').disabled = calOffset <= 0;
+      document.getElementById('calPrev').style.opacity = calOffset <= 0 ? '0.3' : '1';
+    }
+
+    async function loadCalendar() {
+      const status = document.getElementById('calStatus');
+      if (ICAL_URL === 'YOUR_AIRBNB_ICAL_URL_HERE') {
+        status.textContent = 'Add your Airbnb iCal URL to activate live availability.';
+        status.className = 'cal-status error';
+        renderCalendar();
+        return;
+      }
+      try {
+        status.textContent = 'Loading availability...';
+        status.className = 'cal-status loading';
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 8000);
+        const res = await fetch(CORS_PROXY + encodeURIComponent(ICAL_URL), { signal: controller.signal });
+        clearTimeout(timeout);
+        if (!res.ok) throw new Error('fetch failed');
+        const text = await res.text();
+        bookedRanges = parseIcal(text);
+        status.textContent = bookedRanges.length
+          ? `Calendar synced — ${bookedRanges.length} bookings loaded.`
+          : 'All dates currently available.';
+        status.className = 'cal-status';
+      } catch (e) {
+        const isTimeout = e.name === 'AbortError';
+        status.textContent = isTimeout
+          ? 'Calendar is taking too long to load. Message us on WhatsApp to confirm availability.'
+          : 'Could not load live availability — check back on Airbnb for confirmed dates.';
+        status.className = 'cal-status error';
+      }
+      renderCalendar();
+    }
+
+    document.getElementById('calPrev').addEventListener('click', () => { if (calOffset > 0) { calOffset--; renderCalendar(); } });
+    document.getElementById('calNext').addEventListener('click', () => { calOffset++; renderCalendar(); });
+
+    // Defer iCal fetch until availability section is near the viewport
+    const calSection = document.getElementById('availability');
+    const calObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadCalendar();
+        calObserver.disconnect();
+      }
+    }, { rootMargin: '200px' });
+    calObserver.observe(calSection);
+
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+
+    // Scroll-triggered entrance animations (progressive enhancement)
+    document.body.classList.add('js-animate');
+    const fadeEls = document.querySelectorAll('.fade-up, .fade-left, .fade-right');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // ── GALLERY FILTERS ──
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const masonryItems = document.querySelectorAll('.gallery-masonry .gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        masonryItems.forEach(item => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.style.display = show ? '' : 'none';
+        });
+      });
+    });
+
+    // ── GALLERY LIGHTBOX ──
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCount = document.getElementById('lightboxCount');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+
+    // Featured image + all masonry images in order
+    const featuredEl = document.getElementById('galleryFeatured');
+    const featuredImgEl = featuredEl.querySelector('img');
+    const masonryImgEls = [...document.querySelectorAll('.gallery-masonry .gallery-item img')];
+    const galleryItems = [featuredImgEl, ...masonryImgEls];
+    let currentIndex = 0;
+
+    function openLightbox(index) {
+      currentIndex = index;
+      const img = galleryItems[currentIndex];
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCount.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      openLightbox(currentIndex);
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      openLightbox(currentIndex);
+    }
+
+    // Featured click
+    featuredEl.addEventListener('click', () => openLightbox(0));
+    featuredEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(0); } });
+
+    // Masonry item clicks
+    masonryImgEls.forEach((img, i) => {
+      img.parentElement.addEventListener('click', () => openLightbox(i + 1));
+      img.parentElement.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i + 1); }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+    lightboxNext.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+    // Keyboard nav
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+
+    // Touch swipe
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) diff > 0 ? showNext() : showPrev();
+    });
+
+    // Mark selects as touched on change for validation styling
+    document.querySelectorAll('.contact-form select').forEach(sel => {
+      sel.addEventListener('change', () => sel.classList.add('touched'));
+    });
+
+    // ── Lead notification (Web3Forms) ──────────────────────────────────────
+    // Get a free access key at https://web3forms.com — enter sanika@qbinnresorts.com
+    // Paste the key below. Leave as-is until then; WhatsApp still works without it.
+    const WEB3FORMS_KEY = '0170768a-789a-4c88-8e43-080bad0520c7';
+
+    async function notifyByEmail(fields) {
+      if (WEB3FORMS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') return; // not yet configured
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_KEY,
+            from_name: 'Qbinn Tusker Website',
+            subject: `New enquiry from ${fields.name}`,
+            ...fields,
+          }),
+        });
+      } catch (_) { /* silent — WhatsApp is the primary channel */ }
+    }
+
+    // Form → email notification + WhatsApp
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const f = e.target;
+      const name = `${f.fname.value} ${f.lname.value}`;
+      const phone = f.phone.value;
+      const checkin = f.checkin.value;
+      const checkout = f.checkout.value;
+      const guests = f.guests.value;
+      const message = f.message.value;
+
+      // Fire email notification (non-blocking)
+      notifyByEmail({
+        name,
+        phone,
+        'Check-in': checkin,
+        'Check-out': checkout,
+        Guests: guests,
+        Message: message || '—',
+      });
+
+      // Open WhatsApp as before
+      const text = `Hi, I'd like to enquire about a stay at Qbinn Tusker.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ACheck-in: ${checkin}%0ACheck-out: ${checkout}%0AGuests: ${guests}${message ? `%0ARequest: ${encodeURIComponent(message)}` : ''}`;
+      window.open(`https://wa.me/917676617129?text=${text}`, '_blank');
+    }
+  </script>
+</body>
+</html>
