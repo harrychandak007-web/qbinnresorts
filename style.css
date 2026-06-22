@@ -6,8 +6,11 @@
   --surface: #181818;
   --gold:    #c4973a;
   --gold-lt: #e0b85a;
+  --gold-dim: rgba(196,151,58,0.15);
   --cream:   #f0ead8;
   --muted:   #888880;
+  --text-secondary: rgba(240,234,216,0.65);
+  --text-muted:     rgba(240,234,216,0.4);
   --green:   #3a6b34;
   --white:   #ffffff;
   --wa-green: #25D366;
@@ -378,8 +381,11 @@ section { position: relative; }
   height: 1px;
   background: var(--gold);
 }
-h1, h2 {
+h1, h2, h3 {
   text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
 }
 h2 {
   font-family: var(--font-serif);
@@ -390,7 +396,7 @@ h2 {
   letter-spacing: -0.01em;
 }
 h2 em { font-style: italic; color: var(--gold); }
-p { color: rgba(240,234,216,0.72); }
+p { color: var(--text-secondary); }
 
 /* ─── STATS BAR ─── */
 #stats {
@@ -646,8 +652,13 @@ p { color: rgba(240,234,216,0.72); }
   line-height: 1.75;
   margin: 0;
 }
-@media (max-width: 900px) {
+@media (max-width: 900px) and (min-width: 601px) {
+  .property-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
   .property-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) {
   .property-card { border-top: 1px solid var(--gold-dim); }
 }
 
@@ -1230,7 +1241,7 @@ p { color: rgba(240,234,216,0.72); }
   font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--text-secondary);
 }
 .form-field input,
 .form-field select,
@@ -1247,7 +1258,7 @@ p { color: rgba(240,234,216,0.72); }
 }
 .form-field input::placeholder,
 .form-field textarea::placeholder {
-  color: rgba(240,234,216,0.5);
+  color: var(--text-secondary);
 }
 /* Show validation only after user has interacted (not on load) */
 .form-field input:not(:placeholder-shown):invalid,
