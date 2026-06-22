@@ -133,10 +133,7 @@ async function loadCalendar() {
     if (!res.ok) throw new Error('fetch failed');
     const text = await res.text();
     bookedRanges = parseIcal(text);
-    status.textContent = bookedRanges.length
-      ? `Calendar synced — ${bookedRanges.length} bookings loaded.`
-      : 'All dates currently available.';
-    status.className = 'cal-status';
+    status.style.display = 'none';
   } catch (e) {
     const isTimeout = e.name === 'AbortError';
     status.textContent = isTimeout
