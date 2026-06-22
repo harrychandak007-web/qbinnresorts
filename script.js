@@ -45,10 +45,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu();
 // ── AVAILABILITY CALENDAR ──
 // Replace this URL with your Airbnb iCal export link:
 // Airbnb → Manage Listing → Availability → Export Calendar
-const ICAL_URL = 'https://www.airbnb.co.in/calendar/ical/1522245296750708243.ics?t=b5332c9a477e4a388b0aa4fbd428da1d';
 const AIRBNB_LISTING_URL = 'https://www.airbnb.co.in/rooms/1522245296750708243';
-
-const CORS_PROXY = 'https://corsproxy.io/?';
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 const DAY_LABELS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
 
@@ -126,18 +123,12 @@ function renderCalendar() {
 
 async function loadCalendar() {
   const status = document.getElementById('calStatus');
-  if (ICAL_URL === 'YOUR_AIRBNB_ICAL_URL_HERE') {
-    status.textContent = 'Add your Airbnb iCal URL to activate live availability.';
-    status.className = 'cal-status error';
-    renderCalendar();
-    return;
-  }
   try {
     status.textContent = 'Loading availability...';
     status.className = 'cal-status loading';
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
-    const res = await fetch(CORS_PROXY + encodeURIComponent(ICAL_URL), { signal: controller.signal });
+    const res = await fetch('/api/ical', { signal: controller.signal });
     clearTimeout(timeout);
     if (!res.ok) throw new Error('fetch failed');
     const text = await res.text();
