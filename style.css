@@ -653,7 +653,7 @@ p { color: rgba(240,234,216,0.72); }
 
 /* ─── AMENITIES ─── */
 #amenities {
-  padding: 9rem 0 0;
+  padding: 9rem 0;
   background: var(--black);
 }
 .amenities-header {
@@ -669,7 +669,7 @@ p { color: rgba(240,234,216,0.72); }
   grid-template-columns: repeat(4, 1fr);
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 3rem 6rem;
+  padding: 0 3rem;
   gap: 0;
   border-top: 1px solid var(--gold-dim);
 }
@@ -730,7 +730,7 @@ p { color: rgba(240,234,216,0.72); }
 
 /* ─── GALLERY ─── */
 #gallery {
-  padding: 9rem 0 0;
+  padding: 9rem 0;
   background: var(--dark);
 }
 
@@ -1069,7 +1069,7 @@ p { color: rgba(240,234,216,0.72); }
 
 /* ─── SAHARSH CTA ─── */
 #saharsh {
-  padding: 0;
+  padding: 9rem 0;
   background: var(--black);
   position: relative;
   overflow: hidden;
@@ -1077,7 +1077,7 @@ p { color: rgba(240,234,216,0.72); }
 .saharsh-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 7rem 3rem;
+  padding: 0 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8rem;
@@ -1497,7 +1497,7 @@ footer {
   .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
 
-  #about, #rooms, #amenities, #gallery, #testimonials, #location, #contact { padding: 6rem 0; }
+  #about, #rooms, #amenities, #gallery, #availability, #testimonials, #location, #contact { padding: 6rem 0; }
 }
 
 @media (max-width: 600px) {
