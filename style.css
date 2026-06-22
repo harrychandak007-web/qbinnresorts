@@ -837,6 +837,14 @@ p { color: rgba(240,234,216,0.72); }
   outline-offset: 2px;
 }
 
+/* Ghost tiles — fill orphan cells in filtered view */
+.gallery-ghost {
+  display: none;
+  background: var(--surface);
+  aspect-ratio: 4/3;
+  pointer-events: none;
+}
+
 /* Collapse spans when filtered — uniform 3-col grid */
 .gallery-grid.is-filtered .gallery-item,
 .gallery-grid.is-filtered .gallery-item[data-span="wide"],

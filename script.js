@@ -178,7 +178,7 @@ fadeEls.forEach(el => observer.observe(el));
 // ── GALLERY FILTERS ──
 const filterBtns = document.querySelectorAll('.gallery-filter-btn');
 const galleryGrid = document.getElementById('galleryMasonry');
-const masonryItems = document.querySelectorAll('.gallery-grid .gallery-item');
+const masonryItems = document.querySelectorAll('.gallery-grid .gallery-item, .gallery-grid .gallery-ghost');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -189,7 +189,10 @@ filterBtns.forEach(btn => {
     const isFiltered = filter !== 'all';
     galleryGrid.classList.toggle('is-filtered', isFiltered);
     masonryItems.forEach(item => {
-      const show = !isFiltered || item.dataset.category === filter;
+      const isGhost = item.classList.contains('gallery-ghost');
+      const show = isFiltered
+        ? item.dataset.category === filter
+        : !isGhost;
       item.style.display = show ? '' : 'none';
     });
   });
