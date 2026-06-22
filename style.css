@@ -1086,6 +1086,44 @@ p { color: var(--text-secondary); }
   margin-top: 0.2rem;
 }
 
+/* Airbnb reviews row */
+.airbnb-reviews {
+  max-width: 780px;
+  margin: 3rem auto 0;
+  border-top: 1px solid var(--gold-dim);
+  padding-top: 3rem;
+  text-align: left;
+}
+.airbnb-reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.airbnb-logo { flex-shrink: 0; }
+.airbnb-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+.airbnb-review p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(240,234,216,0.75);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+@media (max-width: 900px) {
+  .airbnb-reviews-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
 /* ─── SAHARSH CTA ─── */
 #saharsh {
   padding: 9rem 0;
