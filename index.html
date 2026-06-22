@@ -261,147 +261,83 @@
   <!-- GALLERY -->
   <section id="gallery">
     <div class="section-inner">
-      <div class="gallery-header fade-up">
-        <h2>Every corner<br><em>is the shot.</em></h2>
+      <div class="gallery-header-row fade-up">
+        <div>
+          <div class="section-label">Photography</div>
+          <h2>Every corner<br><em>is the shot.</em></h2>
+        </div>
+        <span class="gallery-photo-count">16 photographs</span>
       </div>
-      <div class="gallery-filters fade-up" style="transition-delay:0.1s" role="tablist" aria-label="Gallery filter">
-        <button class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
-        <button class="gallery-filter-btn" data-filter="exterior" role="tab" aria-selected="false">Exterior</button>
-        <button class="gallery-filter-btn" data-filter="rooms" role="tab" aria-selected="false">Rooms</button>
-        <button class="gallery-filter-btn" data-filter="outdoor" role="tab" aria-selected="false">Outdoor</button>
-      </div>
-    </div>
-
-    <!-- Featured full-width hero image -->
-    <div class="gallery-featured" id="galleryFeatured" role="button" tabindex="0" aria-label="View The Estate — full property with pool">
-      <img src="images/Qbinn (13).png" srcset="images/optimised/Qbinn (13)-800w.webp 800w, images/optimised/Qbinn (13)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Qbinn Tusker estate — full property with private pool and forest backdrop" loading="lazy" decoding="async" />
-      <div class="gallery-featured-caption">
-        <div class="gallery-featured-caption-name">The Estate</div>
-        <div class="gallery-featured-caption-cat">Exterior · Pool</div>
+      <div class="gallery-filters fade-up" role="tablist" aria-label="Gallery filter">
+        <button class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">All <span class="filter-count">16</span></button>
+        <button class="gallery-filter-btn" data-filter="exterior" role="tab" aria-selected="false">Exterior <span class="filter-count">5</span></button>
+        <button class="gallery-filter-btn" data-filter="rooms" role="tab" aria-selected="false">Rooms <span class="filter-count">8</span></button>
+        <button class="gallery-filter-btn" data-filter="outdoor" role="tab" aria-selected="false">Outdoor <span class="filter-count">3</span></button>
       </div>
     </div>
 
-    <!-- Masonry grid -->
-    <div class="gallery-masonry" id="galleryMasonry">
+    <div class="gallery-grid" id="galleryMasonry">
 
+      <!-- Row 1: wide (2/3) + portrait (1/3) -->
+      <div class="gallery-item" data-category="exterior" data-span="wide" role="button" tabindex="0" aria-label="View The Estate">
+        <img src="images/Qbinn (13).png" srcset="images/optimised/Qbinn (13)-800w.webp 800w, images/optimised/Qbinn (13)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 66vw" alt="Qbinn Tusker estate — full property with private pool and forest backdrop" loading="lazy" decoding="async" />
+      </div>
       <div class="gallery-item" data-category="exterior" role="button" tabindex="0" aria-label="View Night Exterior">
-        <img src="images/Qbinn (1).jpg" srcset="images/optimised/Qbinn (1)-800w.webp 800w, images/optimised/Qbinn (1)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Qbinn Tusker night exterior — dramatic garden lighting and teal laser-cut panels" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Night Exterior</div>
-          <div class="gallery-caption-cat">Exterior</div>
-        </div>
+        <img src="images/Qbinn (1).jpg" srcset="images/optimised/Qbinn (1)-800w.webp 800w, images/optimised/Qbinn (1)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Qbinn Tusker night exterior — dramatic garden lighting and teal laser-cut panels" loading="lazy" decoding="async" />
       </div>
 
+      <!-- Row 2: three equal -->
       <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Living Room">
-        <img src="images/Qbinn (4).jpg" srcset="images/optimised/Qbinn (4)-800w.webp 800w, images/optimised/Qbinn (4)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Qbinn Tusker living room with elephant painting and teal sofas" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Living Room</div>
-          <div class="gallery-caption-cat">Rooms</div>
-        </div>
+        <img src="images/Qbinn (4).jpg" srcset="images/optimised/Qbinn (4)-800w.webp 800w, images/optimised/Qbinn (4)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Qbinn Tusker living room with elephant painting and teal sofas" loading="lazy" decoding="async" />
       </div>
-
       <div class="gallery-item" data-category="outdoor" role="button" tabindex="0" aria-label="View Open Jacuzzi">
-        <img src="images/Qbinn (5).jpg" srcset="images/optimised/Qbinn (5)-800w.webp 800w, images/optimised/Qbinn (5)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Open-sky jacuzzi framed by ornate laser-cut pergola screens" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Open Jacuzzi</div>
-          <div class="gallery-caption-cat">Outdoor</div>
-        </div>
+        <img src="images/Qbinn (5).jpg" srcset="images/optimised/Qbinn (5)-800w.webp 800w, images/optimised/Qbinn (5)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Open-sky jacuzzi framed by ornate laser-cut pergola screens" loading="lazy" decoding="async" />
       </div>
-
       <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Master Bedroom">
-        <img src="images/Qbinn (2).jpg" srcset="images/optimised/Qbinn (2)-800w.webp 800w, images/optimised/Qbinn (2)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Master bedroom with balcony opening to forest views and teal curtains" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Master Bedroom</div>
-          <div class="gallery-caption-cat">Rooms</div>
-        </div>
+        <img src="images/Qbinn (2).jpg" srcset="images/optimised/Qbinn (2)-800w.webp 800w, images/optimised/Qbinn (2)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Master bedroom with balcony opening to forest views and teal curtains" loading="lazy" decoding="async" />
       </div>
 
-      <div class="gallery-item" data-category="exterior" role="button" tabindex="0" aria-label="View Aerial View">
-        <img src="images/Qbinn (3).jpg" srcset="images/optimised/Qbinn (3)-800w.webp 800w, images/optimised/Qbinn (3)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Aerial drone view of Qbinn Tusker estate with pool and Jawalagiri forest" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Aerial View</div>
-          <div class="gallery-caption-cat">Exterior</div>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="outdoor" role="button" tabindex="0" aria-label="View Terrace at Night">
-        <img src="images/Qbinn (6).jpg" srcset="images/optimised/Qbinn (6)-800w.webp 800w, images/optimised/Qbinn (6)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="A-frame teak terrace dining pavilion at night with geometric steel beams" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Terrace at Night</div>
-          <div class="gallery-caption-cat">Outdoor</div>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Dining Area">
-        <img src="images/Qbinn (7).jpg" srcset="images/optimised/Qbinn (7)-800w.webp 800w, images/optimised/Qbinn (7)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Dining area with set table viewed through full-height glass sliding doors" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Dining Area</div>
-          <div class="gallery-caption-cat">Rooms</div>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Second Bedroom">
-        <img src="images/Qbinn (8).jpg" srcset="images/optimised/Qbinn (8)-800w.webp 800w, images/optimised/Qbinn (8)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Second bedroom with wooden bed frame, balcony and nature views" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Second Bedroom</div>
-          <div class="gallery-caption-cat">Rooms</div>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="exterior" role="button" tabindex="0" aria-label="View Garden Walkway">
-        <img src="images/Qbinn (9).jpg" srcset="images/optimised/Qbinn (9)-800w.webp 800w, images/optimised/Qbinn (9)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Daytime garden with stepping-stone path and laser-cut pergola archway" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Garden Walkway</div>
-          <div class="gallery-caption-cat">Exterior</div>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Kitchen">
-        <img src="images/Qbinn (10).jpg" srcset="images/optimised/Qbinn (10)-800w.webp 800w, images/optimised/Qbinn (10)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Galley kitchen with marble counters, full appliances and narrow garden window" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Kitchen</div>
-          <div class="gallery-caption-cat">Rooms</div>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Marble Bathroom">
-        <img src="images/Qbinn (12).jpg" srcset="images/optimised/Qbinn (12)-800w.webp 800w, images/optimised/Qbinn (12)-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Marble bathroom with vessel sink, round LED mirror and gold fixtures" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Marble Bathroom</div>
-          <div class="gallery-caption-cat">Rooms</div>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Family Room">
-        <img src="images/n_famroom1.jpg" srcset="images/optimised/n_famroom1-800w.webp 800w, images/optimised/n_famroom1-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Family room with blue L-sofa, elephant artwork and open plan kitchen access" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Family Room</div>
-          <div class="gallery-caption-cat">Rooms</div>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="outdoor" role="button" tabindex="0" aria-label="View Teak Stairwell">
-        <img src="images/n_stairs1.jpg" srcset="images/optimised/n_stairs1-800w.webp 800w, images/optimised/n_stairs1-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Dramatic wood-panelled staircase with warm accent lighting" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Teak Stairwell</div>
-          <div class="gallery-caption-cat">Outdoor</div>
-        </div>
-      </div>
-
-      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Third Bedroom">
-        <img src="images/n_bed3a.jpg" srcset="images/optimised/n_bed3a-800w.webp 800w, images/optimised/n_bed3a-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Third bedroom with warm timber ceiling and floor-to-ceiling windows" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">Third Bedroom</div>
-          <div class="gallery-caption-cat">Rooms</div>
-        </div>
-      </div>
-
+      <!-- Row 3: portrait (1/3) + wide (2/3) — mirrored -->
       <div class="gallery-item" data-category="exterior" role="button" tabindex="0" aria-label="View After Dusk">
-        <img src="images/n_out4.jpg" srcset="images/optimised/n_out4-800w.webp 800w, images/optimised/n_out4-1400w.webp 1400w" sizes="(max-width: 900px) 100vw, 50vw" alt="Qbinn Tusker after dusk — container architecture lit against deep blue hour sky" loading="lazy" decoding="async" />
-        <div class="gallery-caption">
-          <div class="gallery-caption-name">After Dusk</div>
-          <div class="gallery-caption-cat">Exterior</div>
-        </div>
+        <img src="images/n_out4.jpg" srcset="images/optimised/n_out4-800w.webp 800w, images/optimised/n_out4-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Qbinn Tusker after dusk — container architecture lit against deep blue hour sky" loading="lazy" decoding="async" />
+      </div>
+      <div class="gallery-item" data-category="exterior" data-span="wide" role="button" tabindex="0" aria-label="View Aerial View">
+        <img src="images/Qbinn (3).jpg" srcset="images/optimised/Qbinn (3)-800w.webp 800w, images/optimised/Qbinn (3)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 66vw" alt="Aerial drone view of Qbinn Tusker estate with pool and Jawalagiri forest" loading="lazy" decoding="async" />
+      </div>
+
+      <!-- Row 4: cinematic full-width -->
+      <div class="gallery-item" data-category="outdoor" data-span="full" role="button" tabindex="0" aria-label="View Terrace at Night">
+        <img src="images/Qbinn (6).jpg" srcset="images/optimised/Qbinn (6)-800w.webp 800w, images/optimised/Qbinn (6)-1400w.webp 1400w" sizes="100vw" alt="A-frame teak terrace dining pavilion at night with geometric steel beams" loading="lazy" decoding="async" />
+      </div>
+
+      <!-- Row 5: three equal -->
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Dining Area">
+        <img src="images/Qbinn (7).jpg" srcset="images/optimised/Qbinn (7)-800w.webp 800w, images/optimised/Qbinn (7)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Dining area with set table viewed through full-height glass sliding doors" loading="lazy" decoding="async" />
+      </div>
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Second Bedroom">
+        <img src="images/Qbinn (8).jpg" srcset="images/optimised/Qbinn (8)-800w.webp 800w, images/optimised/Qbinn (8)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Second bedroom with wooden bed frame, balcony and nature views" loading="lazy" decoding="async" />
+      </div>
+      <div class="gallery-item" data-category="exterior" role="button" tabindex="0" aria-label="View Garden Walkway">
+        <img src="images/Qbinn (9).jpg" srcset="images/optimised/Qbinn (9)-800w.webp 800w, images/optimised/Qbinn (9)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Daytime garden with stepping-stone path and laser-cut pergola archway" loading="lazy" decoding="async" />
+      </div>
+
+      <!-- Row 6: three equal -->
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Kitchen">
+        <img src="images/Qbinn (10).jpg" srcset="images/optimised/Qbinn (10)-800w.webp 800w, images/optimised/Qbinn (10)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Galley kitchen with marble counters, full appliances and narrow garden window" loading="lazy" decoding="async" />
+      </div>
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Marble Bathroom">
+        <img src="images/Qbinn (12).jpg" srcset="images/optimised/Qbinn (12)-800w.webp 800w, images/optimised/Qbinn (12)-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Marble bathroom with vessel sink, round LED mirror and gold fixtures" loading="lazy" decoding="async" />
+      </div>
+      <div class="gallery-item" data-category="rooms" role="button" tabindex="0" aria-label="View Family Room">
+        <img src="images/n_famroom1.jpg" srcset="images/optimised/n_famroom1-800w.webp 800w, images/optimised/n_famroom1-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Family room with blue L-sofa, elephant artwork and open plan kitchen access" loading="lazy" decoding="async" />
+      </div>
+
+      <!-- Row 7: portrait (1/3) + wide (2/3) -->
+      <div class="gallery-item" data-category="outdoor" role="button" tabindex="0" aria-label="View Teak Stairwell">
+        <img src="images/n_stairs1.jpg" srcset="images/optimised/n_stairs1-800w.webp 800w, images/optimised/n_stairs1-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 33vw" alt="Dramatic wood-panelled staircase with warm accent lighting" loading="lazy" decoding="async" />
+      </div>
+      <div class="gallery-item" data-category="rooms" data-span="wide" role="button" tabindex="0" aria-label="View Third Bedroom">
+        <img src="images/n_bed3a.jpg" srcset="images/optimised/n_bed3a-800w.webp 800w, images/optimised/n_bed3a-1400w.webp 1400w" sizes="(max-width: 768px) 100vw, 66vw" alt="Third bedroom with warm timber ceiling and floor-to-ceiling windows" loading="lazy" decoding="async" />
       </div>
 
     </div>

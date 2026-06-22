@@ -186,7 +186,8 @@ fadeEls.forEach(el => observer.observe(el));
 
 // ── GALLERY FILTERS ──
 const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-const masonryItems = document.querySelectorAll('.gallery-masonry .gallery-item');
+const galleryGrid = document.getElementById('galleryMasonry');
+const masonryItems = document.querySelectorAll('.gallery-grid .gallery-item');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -194,8 +195,10 @@ filterBtns.forEach(btn => {
     filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
     btn.classList.add('active');
     btn.setAttribute('aria-selected', 'true');
+    const isFiltered = filter !== 'all';
+    galleryGrid.classList.toggle('is-filtered', isFiltered);
     masonryItems.forEach(item => {
-      const show = filter === 'all' || item.dataset.category === filter;
+      const show = !isFiltered || item.dataset.category === filter;
       item.style.display = show ? '' : 'none';
     });
   });
@@ -209,19 +212,15 @@ const lightboxClose = document.getElementById('lightboxClose');
 const lightboxPrev = document.getElementById('lightboxPrev');
 const lightboxNext = document.getElementById('lightboxNext');
 
-// Featured image + all masonry images in order
-const featuredEl = document.getElementById('galleryFeatured');
-const featuredImgEl = featuredEl.querySelector('img');
-const masonryImgEls = [...document.querySelectorAll('.gallery-masonry .gallery-item img')];
-const galleryItems = [featuredImgEl, ...masonryImgEls];
+const galleryImgEls = [...document.querySelectorAll('.gallery-grid .gallery-item img')];
 let currentIndex = 0;
 
 function openLightbox(index) {
   currentIndex = index;
-  const img = galleryItems[currentIndex];
+  const img = galleryImgEls[currentIndex];
   lightboxImg.src = img.src;
   lightboxImg.alt = img.alt;
-  lightboxCount.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+  lightboxCount.textContent = `${currentIndex + 1} / ${galleryImgEls.length}`;
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
   lightboxClose.focus();
@@ -233,24 +232,20 @@ function closeLightbox() {
 }
 
 function showNext() {
-  currentIndex = (currentIndex + 1) % galleryItems.length;
+  currentIndex = (currentIndex + 1) % galleryImgEls.length;
   openLightbox(currentIndex);
 }
 
 function showPrev() {
-  currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+  currentIndex = (currentIndex - 1 + galleryImgEls.length) % galleryImgEls.length;
   openLightbox(currentIndex);
 }
 
-// Featured click
-featuredEl.addEventListener('click', () => openLightbox(0));
-featuredEl.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(0); } });
-
-// Masonry item clicks
-masonryImgEls.forEach((img, i) => {
-  img.parentElement.addEventListener('click', () => openLightbox(i + 1));
+// Grid item clicks
+galleryImgEls.forEach((img, i) => {
+  img.parentElement.addEventListener('click', () => openLightbox(i));
   img.parentElement.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i + 1); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(i); }
   });
 });
 
